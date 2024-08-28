@@ -1,0 +1,13 @@
+body {
+    background-image: url('./prediction.jpg');
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: rgb(104, 103, 103);
+    font-family: Arial, sans-serif;
+    text-shadow: 2px 2px #000000;
+  }
+  

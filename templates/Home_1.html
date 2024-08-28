@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CROP PREDICTOR</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/myhome.css') }}">
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    section {
+      padding: 50px 20px;
+      text-align: center;
+      margin: 0 auto;
+      width: 100vw;
+      display: none; /* Hide sections by default */
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      text-align: center;
+    }
+    nav ul li {
+      display: inline;
+      margin: 0 10px;
+    }
+    nav ul li button {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.3s;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 19px;
+    }
+    nav ul li button:hover {
+      background-color: #555;
+    }
+    .note-box {
+      background-color: transparent;
+      border: 2px solid #000;
+      color: #000;
+      padding: 20px;
+      width: 800px;
+      border-radius: 7px;
+      margin: 20px 0;
+      text-align: left;
+      font-size: 18px; /* Increase font size for the note box */
+    }
+    .note-box h2 {
+      color: #000;
+      font-size: 24px;
+    }
+    .note-box p {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    .predict-button {
+      font-size: 24px;
+      padding: 20px 40px;
+      margin-top: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .predict-button:hover {
+      background-color: #45a049;
+    }
+    #home {
+      background: url("{{ url_for('static', filename='images/home_image.jpg') }}") no-repeat;
+      background-size: cover;
+      width: 100vw;
+      object-fit: cover;
+      height: 100vh;
+      font-size: 24px; /* Increase font size for Home page paragraph */
+    }
+    #pred {
+      background: url("{{ url_for('static', filename='images/predict_image.jpg') }}") no-repeat;
+      background-size: cover;
+      width: 100vw;
+      object-fit: contain;
+      height: 100vh;
+      font-size: 20px;
+    }
+    #about {
+      background: url("{{ url_for('static', filename='images/image3.jpg') }}") no-repeat;
+      background-size: cover;
+      width: 100vw;
+      object-fit: contain;
+      height: 100vh;
+      font-size: 30px;
+    }
+    #about p {
+      font-size: 32px; /* Increase font size for the About Us paragraph */
+    }
+    #contact {
+      background: url("{{ url_for('static', filename='images/image1.avif') }}") no-repeat;
+      background-size: cover;
+      width: 100vw;
+      object-fit: contain;
+      height: 100vh;
+      font-size: 28px;
+    }
+    #contact p {
+      font-size: 30px; /* Increase font size for Contact Us contents */
+    }
+    footer {
+      background-color: #016e29; /* Change the footer background color here */
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><button onclick="showSection('home')">Home</button></li>
+      <li><button onclick="showSection('pred')">Predict</button></li>
+      <li><button onclick="showSection('about')">About</button></li>
+      <li><button onclick="showSection('contact')">Contact</button></li>
+    </ul>
+  </nav>
+  
+  <section id="home">
+    <h1><b>CROP PREDICTOR</b></h1>
+    <p><b>Crop Predictor Welcomes you on our website, Hope you are earning well from your farm but we are here for you to provide some suggestions about your crop cultivation.<p> We recommend which crop you should grow in your farm for better yields. It's very easy to predict which crop you should grow based on your soil nutrients. </p><p>Just test your soil in a nearby agriculture centre or in Labs.</p></b></p>
+    <center>
+    <div class="note-box">
+      <center><h2>Note for Users: Checking Soil Nutrients</h2></center>
+      <p>To accurately predict suitable crops for your soil using our website, it's essential to know the soil's nutrient levels and pH. We recommend visiting your nearby agriculture department or local agricultural extension office to:</p>
+      <ol>
+        <li><p>Test Soil Nutrients: Determine levels of nitrogen (N), phosphorus (P), and potassium (K). These nutrients are critical for plant growth and crop selection.</p></li>
+        <li><p>Measure Soil pH: Understand the acidity or alkalinity of your soil. pH affects nutrient availability and crop suitability.</p></li>
+      </ol>
+      <p>Once you have this information, input the results into our website for tailored crop recommendations based on your soil's specific conditions.</p>
+      <p>For further assistance or guidance on soil testing, feel free to reach out to our support team.</p>
+    </div></center>
+    
+   
+  </section>
+  
+  <section id="pred"><br>
+    <br>
+    <br>
+    <h2><b>Click the following button for Crop recommendation</b></h2>
+    <form action="/Predict">
+      <input type="submit" id="Predict" name="Predict" value="Predict" class="predict-button">
+    </form>
+  </section>
+  
+  <section id="about">
+    <h1>About Us</h1>
+    <p><b>Welcome to CropPredictor, where we blend cutting-edge technology with agricultural expertise to empower farmers with data-driven insights for optimal crop cultivation.<p> Our mission is to revolutionize farming practices by providing accurate soil nutrient analysis and personalized crop recommendations.
+    At Agrotech, we understand the challenges farmers face in maximizing yields while preserving the environment. </p><p>Through innovative solutions and scientific analysis, we strive to enhance crop productivity, promote sustainable farming practices, and support agricultural communities worldwide.
+    Join us in our journey to transform agriculture through technology, knowledge, and a commitment to agricultural excellence.</b></p>
+  </section>
+  
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>
+          <strong>Email:</strong><br>
+          <a href="mailto:shreerakshaprabhu11@gmail.com">shreerakshaprabhu11@gmail.com</a><br>
+          <a href="mailto:urshithacr@gmail.com">urshithacr@gmail.com</a><br>
+          <a href="mailto:spoorthimshenvi@gmail.com">spoorthimshenvi@gmail.com</a><br>
+          <a href="mailto:sonali@gmail.com">sonali@gmail.com</a>
+        </p>
+        <p>
+          <strong>Phone:</strong><br>
+          +91 8431672215<br>
+          +91 8618189030<br>
+          +91 9986404069<br>
+          +91 9964805432
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2024 Crop Predictor. All rights reserved.</p>
+    <p>Contact us at: <a href="mailto:info@croppredictor.com">info@croppredictor.com</a></p>
+  </footer>
+  
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.style.display = 'none'); // Hide all sections
+      document.getElementById(id).style.display = 'block'; // Show the selected section
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('home');
+    });
+  </script>
+</body>
+</html>
